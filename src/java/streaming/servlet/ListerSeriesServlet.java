@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import streaming.entity.Serie;
+import streaming.service.SerieService;
 
 /**
  *
@@ -26,6 +27,11 @@ public class ListerSeriesServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
-        List<Serie> series = n
+        List<Serie> series = new SerieService().lister1();
+        
+        req.setAttribute("mesSeries", series);
+        
+        req.getRequestDispatcher("lister_series.jsp").forward(req, resp);
+        
     }
 }
