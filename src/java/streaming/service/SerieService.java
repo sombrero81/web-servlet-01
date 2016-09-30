@@ -20,8 +20,10 @@ public class SerieService {
         SerieDAO daoserie=new SerieDAO();
         return daoserie.listerSerie();
         
-        
-        
+    }
+    
+    public void ajouterSerie(Serie s){
+        new SerieDAO().ajouterSerie(s);
     }
     
 }

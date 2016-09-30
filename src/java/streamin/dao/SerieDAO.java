@@ -23,4 +23,14 @@ public class SerieDAO {
         return s;
     }
     
+    public void ajouterSerie(Serie s){
+        
+        EntityManager em =Persistence.createEntityManagerFactory("PU").createEntityManager();
+        em.getTransaction().begin();
+        em.persist(s);
+        em.getTransaction().commit();
+        
+        
+    }
+    
 }

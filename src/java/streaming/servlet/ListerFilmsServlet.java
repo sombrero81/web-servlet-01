@@ -23,9 +23,19 @@ import streaming.service.FilmService;
 @WebServlet(name = "ListerFilmsServlet", urlPatterns = {"/lister_films"})
 public class ListerFilmsServlet extends HttpServlet {
 
+    
+    
+   // @Override
+    //protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+      //  super.doPost(req, resp); //To change body of generated methods, choose Tools | Templates.
+        
+      // this doGet(req,req) ;
+        
+    //}
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-       //System.out.println("coucou");
+        //System.out.println("coucou");
         
         List<Film> films = new FilmService().lister();
         
@@ -34,8 +44,6 @@ public class ListerFilmsServlet extends HttpServlet {
         req.setAttribute("pied","ceci est le pied de la page @Copyright2016");
         
         req.getRequestDispatcher("lister_films.jsp").forward(req, resp);
-        
-        
     }
 
    

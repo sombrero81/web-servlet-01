@@ -7,6 +7,7 @@ package streaming.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,8 +35,17 @@ public class AjouterFilmServlet extends HttpServlet {
         f.setDuree(Integer.valueOf(req.getParameter("duree")));
         //ajout
         new FilmService().ajouterFilm(f);
-        //forward vers liste film
-        req.getRequestDispatcher("lister_films.jsp").forward(req, resp);
+        
+        
+        //initialise attribut mesfilms pour la jsp
+       // List<Film> films = new FilmService().lister();
+       // req.setAttribute("mesFilms", films);
+        
+       //forward vers liste film
+        //req.getRequestDispatcher("lister_films").forward(req, resp);
+        
+        //redirect vers liste film
+        resp.sendRedirect("lister_films");
     }
     
     
