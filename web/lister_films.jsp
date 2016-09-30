@@ -29,7 +29,7 @@
             <c:forEach items="${mesFilms}" var="monFilm">
                     
                     film
-                    ${monFilm.titre}
+                    ${monFilm.titre}<a href="supprimer_film?monId=${monFilm.id}"> supprimer</a>
                     <br>
                 </c:forEach> 
             
