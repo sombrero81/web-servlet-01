@@ -14,7 +14,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import streaming.entity.Film;
+import streaming.entity.Genre;
 import streaming.service.FilmService;
+import streaming.service.GenreService;
 
 /**
  *
@@ -33,6 +35,19 @@ public class AjouterFilmServlet extends HttpServlet {
         f.setSynopsis(req.getParameter("synopsis"));
         f.setAnnee(Integer.valueOf(req.getParameter("annee")));
         f.setDuree(Integer.valueOf(req.getParameter("duree")));
+        
+        //option1 pas bien
+       // f.setGenre(new Genre());
+        //f.getGenre().setId(Long.valueOf(req.getParameter("genreID")));
+       // f.getGenre().getFilms().add(f);
+        
+       
+       //option2 clean
+       long idGenre = Long.valueOf(req.getParameter("genreID"));
+       Genre g =new GenreService().chercheParId(idGenre);
+       f.setGenre(g);
+       g.getFilms().add(f);
+       
         //ajout
         new FilmService().ajouterFilm(f);
         
@@ -53,6 +68,10 @@ public class AjouterFilmServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
+        
+        List<Genre> genres = new GenreService().lister();
+        req.setAttribute("listeGenres", genres);
+                
         req.getRequestDispatcher("ajouter_film.jsp").forward(req, resp);
         
     }

@@ -30,6 +30,8 @@
                     
                     film
                     ${monFilm.titre}<a href="supprimer_film?monId=${monFilm.id}"> supprimer</a>
+                    
+                    <a href="modifier_film?monId=${monFilm.id}"> modifier</a>
                     <br>
                 </c:forEach> 
             
