@@ -17,7 +17,7 @@ import streaming.service.SerieService;
 public class SerieServiceTest {
     
     @Test
-    public void ajouterserviceok(){
+    public void ajouterserieok(){
     
         Serie s = new Serie();
         s.setTitre("serietest");
