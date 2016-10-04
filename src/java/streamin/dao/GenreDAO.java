@@ -31,4 +31,36 @@ public class GenreDAO {
         
     }
     
+    public void ajouterGenre(Genre g){
+        
+        EntityManager em =Persistence.createEntityManagerFactory("PU").createEntityManager();
+        
+        em.getTransaction().begin();
+        em.persist(g);
+        em.getTransaction().commit();
+        
+    }
+    
+    public void modifierGenre(Genre g){
+        
+        EntityManager em=Persistence.createEntityManagerFactory("PU").createEntityManager();
+        
+        em.getTransaction().begin();
+        em.merge(g);
+        em.getTransaction().commit();
+        
+    }
+    
+    
+    public void supprimerGenre(long id){
+        
+        EntityManager em=Persistence.createEntityManagerFactory("PU").createEntityManager();
+        
+        em.getTransaction().begin();
+        em.createQuery("DELETE FROM Genre g WHERE g.id=" + id).executeUpdate();
+        em.getTransaction().commit();
+    }
+    
+    
+    
 }

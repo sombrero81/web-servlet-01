@@ -21,9 +21,27 @@ public class GenreService {
         return dao.listerGenres();
     }
     
-    public Genre chercheParId(long id){
+    public Genre findbyId(long id){
         
         return new GenreDAO().recherche(id);
     }
+    
+    public void ajouter (Genre g){
+        
+        new GenreDAO().ajouterGenre(g);
+    }
+    
+    
+    public void modifier(Genre g){
+        
+        new GenreDAO().modifierGenre(g);
+    }
+    
+    public void supprimer(long id){
+        new GenreDAO().supprimerGenre(id);
+    }
+    
+    
+    
     
 }

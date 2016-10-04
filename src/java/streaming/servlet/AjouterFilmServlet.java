@@ -44,7 +44,7 @@ public class AjouterFilmServlet extends HttpServlet {
        
        //option2 clean
        long idGenre = Long.valueOf(req.getParameter("genreID"));
-       Genre g =new GenreService().chercheParId(idGenre);
+       Genre g =new GenreService().findbyId(idGenre);
        f.setGenre(g);
        g.getFilms().add(f);
        
