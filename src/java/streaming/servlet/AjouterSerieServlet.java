@@ -29,7 +29,7 @@ public class AjouterSerieServlet extends HttpServlet {
         Serie s =new Serie();
         s.setTitre(req.getParameter("titre"));
         s.setSynopsis(req.getParameter("synopsis"));
-        new SerieService().ajouterSerie(s);
+        new SerieService().ajouter(s);
         
         resp.sendRedirect("lister_series");
         

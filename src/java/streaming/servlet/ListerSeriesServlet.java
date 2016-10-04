@@ -27,7 +27,7 @@ public class ListerSeriesServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
-        List<Serie> series = new SerieService().lister1();
+        List<Serie> series = new SerieService().lister();
         
         req.setAttribute("mesSeries", series);
         

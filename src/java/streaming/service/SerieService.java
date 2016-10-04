@@ -15,20 +15,29 @@ import streaming.entity.Serie;
  */
 public class SerieService {
     
-    public List<Serie> lister1(){
+    public List<Serie> lister(){
         
         SerieDAO daoserie=new SerieDAO();
         return daoserie.listerSerie();
         
     }
     
-    public void ajouterSerie(Serie s){
+    public void ajouter(Serie s){
         new SerieDAO().ajouterSerie(s);
     }
     
-    public void supprimerSerie(long id){
+    public void supprimer(long id){
         new SerieDAO().supprimerSerie(id);
         
+    }
+    
+    public void modifier(Serie s){
+        new SerieDAO().modifierSerie(s);
+    }
+    
+    public Serie findbyId(long id){
+        
+        return new SerieDAO().rechercheSeriebyId(id);
     }
     
 }

@@ -38,4 +38,14 @@ public class FilmService {
         
     }
     
+    public void ajouterSiValides (List<Film> films){
+        
+        FilmDAO dao=new FilmDAO();
+        for (Film f:films){
+            
+            if(f.getTitre().length()>0){
+                dao.ajouterFilm(f);
+            }
+        }
+    }
 }

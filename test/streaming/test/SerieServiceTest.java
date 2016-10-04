@@ -22,8 +22,36 @@ public class SerieServiceTest {
         Serie s = new Serie();
         s.setTitre("serietest");
         
-        new SerieService().ajouterSerie(s);
+        new SerieService().ajouter(s);
         
+    }
+    
+    @Test
+    public void modifserieok(){
+        
+        Serie s =new Serie();
+        s.setId(10L);
+        s.setTitre("seriebidon");
+        
+        new SerieService().modifier(s);
+    }
+    
+    @Test
+    public void suppressionserieok(){
+        
+        new SerieService().supprimer(10L);
+    }
+    
+    @Test
+    public void chercheserieok(){
+        
+        new SerieService().findbyId(1L);
+    }
+    
+    @Test
+    public void listerserietestok(){
+        
+        new SerieService().lister();
     }
     
 }

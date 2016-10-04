@@ -25,7 +25,7 @@ public class DeleteSerieServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
        
         long id=Long.valueOf(req.getParameter("monId"));
-        new SerieService().supprimerSerie(id);
+        new SerieService().supprimer(id);
         resp.sendRedirect("lister_series");
     }
 

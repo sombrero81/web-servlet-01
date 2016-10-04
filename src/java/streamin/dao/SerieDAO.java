@@ -41,4 +41,23 @@ public class SerieDAO {
         em.getTransaction().commit();
     }
     
+    public void modifierSerie(Serie s){
+        
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        
+        em.getTransaction().begin();
+        em.merge(s);
+        em.getTransaction().commit();
+        
+    }
+    
+    public Serie rechercheSeriebyId(long id){
+        
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        return em.find(Serie.class, id);
+    }
+    
+    
+    
 }
+
